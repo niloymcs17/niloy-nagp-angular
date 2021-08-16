@@ -1,0 +1,19 @@
+<h2>{{'login_page' | translate}}</h2>
+<span *ngIf="loginError">{{'login_error' | translate}}</span>
+<form [formGroup]="profileForm">
+  <mat-form-field>
+    <mat-label>{{'user' | translate}}</mat-label>
+    <input type="text" matInput formControlName="user" autocomplete="off">
+    <mat-error>
+      {{findError('user')}}
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>{{'pass' | translate}}</mat-label>
+    <input type="password" autocomplete="off" matInput formControlName="pass">
+    <mat-error>
+      {{findError('pass')}}
+    </mat-error>
+  </mat-form-field>
+  <button mat-raised-button color="primary" (click)="login()" type="submit">{{'signin' | translate}}</button>
+</form>
